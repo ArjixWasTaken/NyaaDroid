@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.arjixwastaken.myapplication"
+        applicationId "com.arjixwastaken.nyaadroid"
         minSdk 26
         targetSdk 32
         versionCode 1

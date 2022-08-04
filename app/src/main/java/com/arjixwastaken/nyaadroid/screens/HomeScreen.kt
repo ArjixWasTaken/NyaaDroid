@@ -1,4 +1,4 @@
-package com.arjixwastaken.myapplication.screens
+package com.arjixwastaken.nyaadroid.screens
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text

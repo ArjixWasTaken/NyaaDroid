@@ -1,9 +1,8 @@
-package com.arjixwastaken.myapplication.screens
+package com.arjixwastaken.nyaadroid.screens
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.arjixwastaken.myapplication.api.Torrents
 
 @Preview
 @Composable

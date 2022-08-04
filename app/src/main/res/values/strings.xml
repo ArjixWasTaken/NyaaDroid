@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">NyaaDroid</string>
     <string name="home_route">Home</string>
     <string name="settings_route">Settings</string>
     <string name="browse_route">Browse</string>

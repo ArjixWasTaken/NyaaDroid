@@ -1,4 +1,4 @@
-package com.arjixwastaken.myapplication.utils
+package com.arjixwastaken.nyaadroid.utils
 
 
 import android.os.Handler

@@ -1,4 +1,4 @@
-package com.arjixwastaken.myapplication.screens
+package com.arjixwastaken.nyaadroid.screens
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable

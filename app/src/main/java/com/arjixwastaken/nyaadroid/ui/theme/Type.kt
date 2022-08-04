@@ -1,4 +1,4 @@
-package com.arjixwastaken.myapplication.ui.theme
+package com.arjixwastaken.nyaadroid.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

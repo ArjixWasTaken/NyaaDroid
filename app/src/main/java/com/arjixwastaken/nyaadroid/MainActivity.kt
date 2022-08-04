@@ -1,10 +1,10 @@
-package com.arjixwastaken.myapplication
+package com.arjixwastaken.nyaadroid
 
 import android.annotation.SuppressLint
-import com.arjixwastaken.myapplication.ui.theme.MyApplicationTheme
+import com.arjixwastaken.nyaadroid.ui.theme.NyaaDroidTheme
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.tooling.preview.Preview
-import com.arjixwastaken.myapplication.screens.*
+import com.arjixwastaken.nyaadroid.screens.*
 import androidx.navigation.compose.composable
 import androidx.navigation.NavHostController
 import androidx.activity.compose.setContent
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApplicationTheme {
+            NyaaDroidTheme {
                 MainScreen()
             }
         }

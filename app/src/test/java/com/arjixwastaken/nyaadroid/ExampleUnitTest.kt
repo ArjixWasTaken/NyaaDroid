@@ -1,4 +1,4 @@
-package com.arjixwastaken.myapplication
+package com.arjixwastaken.nyaadroid
 
 import org.junit.Test
 

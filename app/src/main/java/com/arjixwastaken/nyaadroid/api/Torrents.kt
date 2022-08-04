@@ -1,6 +1,6 @@
-package com.arjixwastaken.myapplication.api
+package com.arjixwastaken.nyaadroid.api
 
-import com.arjixwastaken.myapplication.app
+import com.arjixwastaken.nyaadroid.app
 
 
 data class TorrentResult(

@@ -1,7 +1,5 @@
-package com.arjixwastaken.myapplication
+package com.arjixwastaken.nyaadroid
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
