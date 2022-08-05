@@ -16,12 +16,23 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.material.*
 import android.os.Bundle
+import androidx.compose.foundation.layout.Column
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import com.arjixwastaken.nyaadroid.api.RetrieveTorrents
+import com.arjixwastaken.nyaadroid.api.TorrentResult
+import com.arjixwastaken.nyaadroid.components.TorrentItem
+import com.arjixwastaken.nyaadroid.utils.Coroutines.main
+import kotlinx.coroutines.launch
 
 val app by lazy { Requests() }
+// TODO: Figure out how networking works
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             NyaaDroidTheme {
                 MainScreen()
@@ -36,13 +47,14 @@ sealed class BottomNavigationScreens(val route: String, @StringRes val resourceI
     object Settings : BottomNavigationScreens("Settings", R.string.settings_route, R.drawable.ic_baseline_settings_24)
 }
 
+
 @Composable
 fun MainScreenNavigationConfigurations(
     navController: NavHostController
 ) {
     NavHost(navController, startDestination = BottomNavigationScreens.Home.route) {
         composable(BottomNavigationScreens.Home.route) { Home() }
-        composable(BottomNavigationScreens.Browse.route) { Browse() }
+        composable(BottomNavigationScreens.Browse.route) { Browse( remember { BrowseItems }) }
         composable(BottomNavigationScreens.Settings.route) { Settings() }
     }
 }

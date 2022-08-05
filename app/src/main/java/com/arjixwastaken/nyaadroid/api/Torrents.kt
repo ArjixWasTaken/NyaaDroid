@@ -1,6 +1,7 @@
 package com.arjixwastaken.nyaadroid.api
 
 import com.arjixwastaken.nyaadroid.app
+import java.lang.Exception
 
 
 data class TorrentResult(
@@ -17,21 +18,11 @@ data class TorrentResult(
 )
 
 
-class Torrents {
-    companion object {
-        val Instance: Torrents
-            get() {
-                if (instance == null) instance = Torrents()
-                return instance!!
-            }
-        private var instance: Torrents? = null;
-    }
-    init { instance = this }
+suspend fun RetrieveTorrents(page: String): List<TorrentResult> {
+    val res = app.get(page)
+    if (!res.isSuccessful) return emptyList()
 
-
-    suspend fun FetchTorrentsFromPage(page: String): List<TorrentResult> {
-        val res = app.get(page)
-        if (!res.isSuccessful) return emptyList()
+    try {
 
         val doc = res.document
         return doc.select("table > tbody > tr").map {
@@ -48,5 +39,7 @@ class Torrents {
                 it.selectFirst("td:last-child")?.text()?.toIntOrNull() ?: 0
             )
         }
+    } catch (e: Exception) {
+        return emptyList()
     }
 }
