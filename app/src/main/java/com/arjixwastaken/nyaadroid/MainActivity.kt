@@ -11,22 +11,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
-import com.lagradost.nicehttp.Requests
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.material.*
 import android.os.Bundle
-import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import com.arjixwastaken.nyaadroid.api.RetrieveTorrents
-import com.arjixwastaken.nyaadroid.api.TorrentResult
-import com.arjixwastaken.nyaadroid.components.TorrentItem
-import com.arjixwastaken.nyaadroid.utils.Coroutines.main
-import kotlinx.coroutines.launch
+import com.arjixwastaken.nyaaapi.Nyaa
 
-val app by lazy { Requests() }
-// TODO: Figure out how networking works
+val NyaaAPI by lazy { Nyaa() }
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")

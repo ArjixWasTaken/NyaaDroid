@@ -9,18 +9,18 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.*
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.arjixwastaken.nyaadroid.api.TorrentResult
 import com.arjixwastaken.nyaadroid.components.TorrentItem
 import com.arjixwastaken.nyaadroid.utils.TextSearchBar
 import kotlin.concurrent.thread
+import com.arjixwastaken.nyaaapi.models.TorrentPreview
+import com.arjixwastaken.nyaadroid.NyaaAPI
 
 
-val BrowseItems by lazy { mutableStateListOf<TorrentResult>() }
+val BrowseItems by lazy { mutableStateListOf<TorrentPreview>() }
 
 @Composable
-fun Browse(Items: SnapshotStateList<TorrentResult>){
+fun Browse(Items: SnapshotStateList<TorrentPreview>){
     var previousValue by remember { mutableStateOf("") }
     var currentPage by remember { mutableStateOf(1) }
     var value by remember { mutableStateOf("") }
