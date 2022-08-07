@@ -7,7 +7,6 @@ class DataSize(val value: Float, val unit: DataUnit) {
         fun fromString(str: String): DataSize {
             if (str.trim().split(" ").size != 2) throw InvalidParameterException("`str` must be a string in the format of \"1 Bytes\"")
             val (count, unit) = str.trim().split(" ")
-            println("CONVERTING STR TO ENUM $str -> $unit")
             return DataSize(count.toFloat(), DataUnit.valueOf(unit))
         }
     }
