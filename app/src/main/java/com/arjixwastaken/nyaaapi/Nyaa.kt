@@ -56,6 +56,8 @@ open class Nyaa {
 
     suspend fun search(payload: SearchRequest):  List<TorrentPreview> {
         val idRegex = Regex("""/view/(\d+)""")
+        val catRegex = Regex("""(\d_\d)\.png""")
+
         val queryParams = mapOf<String, String>(
             "f" to payload.filter.ordinal.toString(),
             "c" to payload.category,
@@ -81,7 +83,7 @@ open class Nyaa {
                     "success" -> TorrentState.TRUSTED
                     else -> TorrentState.NORMAL
                 },
-                categoryStringToId(TDs[0].selectFirst("a")!!.attr("title")),
+                catRegex.find(TDs[0].selectFirst("img")!!.attr("src"))?.groupValues?.get(1) ?: "N/A",
                 TDs[1].selectFirst("a:last-child")!!.text(),
                 TDs[1].selectFirst(".comments")?.text()?.toIntOrNull() ?: 0,
                 URI("https://$HOST/download/$id.torrent"),
