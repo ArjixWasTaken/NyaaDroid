@@ -7,20 +7,29 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
+import com.arjixwastaken.nyaaapi.models.DataSize
 import com.arjixwastaken.nyaadroid.components.TorrentItem
 import com.arjixwastaken.nyaadroid.utils.TextSearchBar
 import kotlin.concurrent.thread
 import com.arjixwastaken.nyaaapi.models.TorrentPreview
+import com.arjixwastaken.nyaaapi.models.TorrentState
+import com.arjixwastaken.nyaaapi.models.payloads.SearchRequest
 import com.arjixwastaken.nyaadroid.NyaaAPI
+import kotlinx.coroutines.launch
+import java.net.URI
+import java.util.*
 
 
 val BrowseItems by lazy { mutableStateListOf<TorrentPreview>() }
 
 @Composable
 fun Browse(Items: SnapshotStateList<TorrentPreview>){
+    val coroutine = rememberCoroutineScope()
+
     var previousValue by remember { mutableStateOf("") }
     var currentPage by remember { mutableStateOf(1) }
     var value by remember { mutableStateOf("") }
@@ -40,9 +49,7 @@ fun Browse(Items: SnapshotStateList<TorrentPreview>){
                         currentPage = 1
                         BrowseItems.clear()
 
-                        thread {
-                            // TODO: Actually do the search
-                        }
+                        coroutine.launch { BrowseItems.addAll(NyaaAPI.search(SearchRequest(value))) }
                     }
                 }
             )
